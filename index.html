@@ -1,46 +1,239 @@
 <!doctype html>
 <html>
-    <head>
-        <title>for u ❤️</title>
-        <style>
-            body{
-                text-align: center;
-                margin-top: 150px;
-                font-family: arial;
-                background-color: pink;
-            }
-            h1{
-                color: #ff3366;
-            }
-            button{
-                padding:12px 25px;
-                margin:10px;
-                border:none;
-                border-radius: 20px;
-                cursor:pointer;
-            }
-            #yes{
-                background: #ff3366;
-                color:white;
-            }
-            #no{
-                background: white;
-            }
-        </style>
-    </head>
 
-    <body>
-        <h1>WILL YOU BE MY VALENTINE ? ❤️</h1>
-        <button id="yes" onclick="yesclick()">YES❤️</button>
-         <button id="NO" onclick="NOclick()">NO😭</button>
-         <SCRIPT>
-            function yesclick(){
-                document.querySelector("h1").innerHTML = "YO I KNEW IT MY PRINCESS 🌹";
-            }
-            function NOclick(){
-                document.querySelector("h1").innerHTML = "are u sure 😭 did i do anything wrong 🥹" ;
+<head>
+    <title>THE NIGHT I CHOSE YOU ❤️</title>
 
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: arial;
+            color: white;
+            text-align: center;
+            background: radial-gradient(circle, #38205f, #10091d);
+            overflow: hidden;
+        }
+
+        .screen {
+            min-height: 100vh;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .active {
+            display: flex;
+        }
+
+        .box {
+            max-width: 600px;
+        }
+
+        .small {
+            letter-spacing: 4px;
+            opacity: 0.7;
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+
+        p {
+            font-size: 19px;
+            line-height: 1.6;
+        }
+
+        button {
+            padding: 14px 28px;
+            margin: 10px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+        }
+
+        .heart {
+            font-size: 80px;
+            animation: beat 1.2s infinite;
+        }
+
+        .card {
+            padding: 25px;
+            margin: 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        #message {
+            min-height: 80px;
+        }
+
+        .fallen-heart {
+            position: fixed;
+            top: -50px;
+            animation: fall 5s linear;
+        }
+
+        @keyframes beat {
+            50% {
+                transform: scale(1.2);
             }
-         </SCRIPT>
-    </body>
+        }
+
+        @keyframes fall {
+            to {
+                top: 110vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="screen active" id="one">
+        <div class="box">
+            <div class="small">A SMALL LITTLE SECRET</div>
+
+            <div class="heart">❤️</div>
+
+            <h2>I HAVE SMALL SECRET TO TELL YOU...</h2>
+
+            <button onclick="next(2)">OPEN IT ✨</button>
+        </div>
+    </section>
+
+    <section class="screen" id="two">
+        <div class="box">
+            <div class="small">SANA JUST THINK ABOUT THIS</div>
+
+            <h1>OUT OF BILLION PEOPLE.....</h1>
+
+            <p>SOMEHOW, OUR PATH CROSSED ❤️</p>
+
+            <button onclick="next(3)">AND THEN →</button>
+        </div>
+    </section>
+
+    <section class="screen" id="three">
+        <div class="box">
+            <div class="small">THE REAL PART 🌹</div>
+
+            <h1>then i found you 💛</h1>
+
+            <div class="card">
+                <p id="message"></p>
+            </div>
+
+            <button onclick="typeMessage()">READ MY MESSAGE</button>
+
+            <button onclick="next(4)">CONTINUE ➡️</button>
+        </div>
+    </section>
+
+    <section class="screen" id="four">
+        <div class="box">
+            <div class="small">ONE SMALL QUESTION FOR U SANUUUU</div>
+
+            <h1>if i could go back....</h1>
+
+            <p>
+                would i choose you again
+            </p>
+
+            <button onclick="next(5)">YES❤️</button>
+
+            <button onclick="next(5)">without a doubt 👉👈</button>
+        </div>
+    </section>
+
+    <section class="screen" id="five">
+        <div class="box">
+
+            <div class="heart">💖</div>
+
+            <h1>i would still choose you sana darling</h1>
+
+            <p>
+                “You can keep teasing me all you want, but just remember—somewhere
+                between your smile and your words, you’ve already become someone
+                I can’t ignore. ❤️”
+            </p>
+
+            <p>
+                -from someone who is really lucky to have you 💖
+            </p>
+
+        </div>
+    </section>
+
+    <script>
+
+        function next(number) {
+            document.querySelector(".active").classList.remove("active");
+
+            document.getElementById(
+                ["", "one", "two", "three", "four", "five"][number]
+            ).classList.add("active");
+
+            if (number == 5) {
+                makeHearts();
+            }
+        }
+
+        function typeMessage() {
+
+            let text = "i may not always know the perfect words,but one thing i know for sure...having you in my life is something i never want to take for granted.💖";
+
+            let i = 0;
+
+            let message = document.getElementById("message");
+
+            message.innerHTML = "";
+
+            let timer = setInterval(function () {
+
+                message.innerHTML += text[i];
+
+                i++;
+
+                if (i == text.length) {
+                    clearInterval(timer);
+                }
+
+            }, 35);
+        }
+
+        function makeHearts() {
+
+            for (let i = 0; i < 25; i++) {
+
+                let heart = document.createElement("div");
+
+                heart.innerHTML = "💖";
+
+                heart.className = "fallen-heart";
+
+                heart.style.left = Math.random() * 100 + "vw";
+
+                heart.style.fontSize =
+                    (15 + Math.random() * 25) + "px";
+
+                document.body.appendChild(heart);
+
+                setTimeout(function () {
+                    heart.remove();
+                }, 5000);
+            }
+        }
+
+    </script>
+
+</body>
+
 </html>
