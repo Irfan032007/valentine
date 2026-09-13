@@ -1,94 +1,241 @@
 <!doctype html>
-<html>
-
+<html lang="en">
 <head>
-    <title>THE NIGHT I CHOSE YOU ❤️</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>FOR MY MOTHER ❤️</title>
 
     <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            font-family: arial;
-            color: white;
-            text-align: center;
-            background: radial-gradient(circle, #38205f, #10091d);
-            overflow: hidden;
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
         }
 
-        .screen {
-            min-height: 100vh;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+        body{
+            font-family:georgia,serif;
+            background:#120b18;
+            color:white;
+            overflow-x:hidden;
         }
 
-        .active {
-            display: flex;
+        .background{
+            position:fixed;
+            inset:0;
+            background:radial-gradient(circle at 20% 20%,#7b3f70 0%,transparent 30%),
+                       radial-gradient(circle at 80% 80%,#4d2858 0%,transparent 30%),
+                       #120b18;
+            z-index:-2;
         }
 
-        .box {
-            max-width: 600px;
+        .heart{
+            position:fixed;
+            bottom:-50px;
+            font-size:25px;
+            animation:floatup 8s linear infinite;
+            opacity:0.7;
+            z-index:-1;
         }
 
-        .small {
-            letter-spacing: 4px;
-            opacity: 0.7;
+        .h1{
+            left:10%;
+            animation-delay:1s;
         }
 
-        h1 {
-            font-size: 50px;
+        .h2{
+            left:30%;
+            animation-delay:4s;
         }
 
-        p {
-            font-size: 19px;
-            line-height: 1.6;
+        .h3{
+            left:55%;
+            animation-delay:2s;
         }
 
-        button {
-            padding: 14px 28px;
-            margin: 10px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 16px;
+        .h4{
+            left:74%;
+            animation-delay:5s;
         }
 
-        button:hover {
-            transform: scale(1.08);
+        .h5{
+            left:90%;
+            animation-delay:7s;
         }
 
-        .heart {
-            font-size: 80px;
-            animation: beat 1.2s infinite;
-        }
+        @keyframes floatup{
+            0%{
+                transform:translateY(0) scale(1.5);
+                opacity:0;
+            }
 
-        .card {
-            padding: 25px;
-            margin: 20px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.1);
-        }
+            50%{
+                opacity:0.7;
+            }
 
-        #message {
-            min-height: 80px;
-        }
-
-        .fallen-heart {
-            position: fixed;
-            top: -50px;
-            animation: fall 5s linear;
-        }
-
-        @keyframes beat {
-            50% {
-                transform: scale(1.2);
+            100%{
+                transform:translateY(-110vh) scale(1);
+                opacity:0;
             }
         }
 
-        @keyframes fall {
-            to {
-                top: 110vh;
+        .screen{
+            min-height:100vh;
+            display:none;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+            padding:30px;
+        }
+
+        .screen.active{
+            display:flex;
+        }
+
+        .content{
+            max-width:750px;
+            width:100%;
+        }
+
+        .flower{
+            font-size:80px;
+            animation:pulse 2s infinite;
+        }
+
+        @keyframes pulse{
+            0%,100%{
+                transform:scale(1);
+            }
+
+            50%{
+                transform:scale(1.12);
+            }
+        }
+
+        h1{
+            font-size:55px;
+            margin:20px 0;
+        }
+
+        .subtitle{
+            font-size:21px;
+            color:#f3d9ec;
+            line-height:1.7;
+        }
+
+        button{
+            margin-top:35px;
+            padding:15px 35px;
+            border:none;
+            border-radius:50px;
+            background:#e88bc4;
+            color:white;
+            font-size:18px;
+            cursor:pointer;
+            transition:0.3s;
+            box-shadow:0 0 25px rgba(232,139,196,0.4);
+        }
+
+        button:hover{
+            transform:scale(1.08);
+            box-shadow:0 0 25px rgba(232,139,196,0.8);
+        }
+
+        .message{
+            font-size:25px;
+            line-height:1.9;
+            color:#ffeaf8;
+        }
+
+        .highlight{
+            color:#ff9ed2;
+            font-size:32px;
+        }
+
+        .cards{
+            background-color:rgba(255,255,255,0.08);
+            border:1px solid rgba(255,255,255,0.15);
+            padding:30px 20px;
+            border-radius:20px;
+            backdrop-filter:blur(10px);
+            transition:0.3s;
+        }
+
+        .card{
+            padding:20px;
+            margin-bottom:15px;
+            border-radius:15px;
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-10px);
+            background:rgba(255,255,255,0.13);
+        }
+
+        .card .emoji{
+            font-size:45px;
+        }
+
+        .card h2{
+            margin:15px 0;
+            color:#ffb5d5;
+        }
+
+        .card p{
+            line-height:1.6;
+            color:#ead9e7;
+        }
+
+        .big-heart{
+            font-size:100px;
+            animation:pulse 1.5s infinite;
+        }
+
+        .final-message{
+            font-size:24px;
+            line-height:1.8;
+            margin-top:20px;
+        }
+
+        .secret{
+            display:none;
+            margin-top:30px;
+            padding:25px;
+            border-radius:20px;
+            background:rgba(255,255,255,0.1);
+            border:1px solid rgba(255,255,255,0.2);
+            font-size:22px;
+            line-height:1.8;
+            animation:appear 1s ease;
+        }
+
+        @keyframes appear{
+            from{
+                opacity:0;
+                transform:translateY(20px);
+            }
+
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        @media (max-width:700px){
+            h1{
+                font-size:38px;
+            }
+
+            .subtitle{
+                font-size:18px;
+            }
+
+            .card{
+                grid-template-columns:1fr;
+            }
+
+            .message{
+                font-size:21px;
             }
         }
     </style>
@@ -96,144 +243,190 @@
 
 <body>
 
-    <section class="screen active" id="one">
-        <div class="box">
-            <div class="small">A SMALL LITTLE SECRET</div>
+    <div class="background"></div>
 
-            <div class="heart">❤️</div>
+    <div class="heart h1">❤️</div>
+    <div class="heart h2">🌸</div>
+    <div class="heart h3">🌷</div>
+    <div class="heart h4">❤️</div>
+    <div class="heart h5">🌹</div>
 
-            <h2>I HAVE SMALL SECRET TO TELL YOU...</h2>
+    <section class="screen active" id="screen1">
+        <div class="content">
+            <div class="flower">🌼</div>
 
-            <button onclick="next(2)">OPEN IT ✨</button>
+            <h1>A LITTLE SURPRISE FOR YOU RASHIII ❤️</h1>
+
+            <p class="subtitle">
+                THERE IS SOMETHING I WANTED TO TELL YOU MOM....<br>
+                BUT SOMETIMES WORDS ARE NOT ENOUGH.
+            </p>
+
+            <button onclick="nextscreen(2)">OPEN MY HEART ❤️</button>
         </div>
     </section>
 
-    <section class="screen" id="two">
-        <div class="box">
-            <div class="small">SANA JUST THINK ABOUT THIS</div>
+    <section class="screen" id="screen2">
+        <div class="content">
 
-            <h1>OUT OF BILLION PEOPLE.....</h1>
+            <p class="highlight">DEAR RASHI,</p>
 
-            <p>SOMEHOW, OUR PATH CROSSED ❤️</p>
+            <p class="message">
+                I MAY NOT SAY IT EVERY DAY,
+                <br><br>
+                BUT SO MUCH OF WHO I AM TODAY EXISTS BECAUSE OF YOU.
+                <br><br>
+                EVERY SACRIFICE.
+                <br>
+                EVERY LESSON.
+                <br>
+                EVERYTHING YOU DID FOR ME.
+                <br>
+                WORKING HARD FOR ME RASHI...
+                <br><br>
+                <strong>THANK YOU SO MUCH RASHII I REALLY LOVE U ❤️</strong>
+            </p>
 
-            <button onclick="next(3)">AND THEN →</button>
+            <button onclick="nextscreen(3)">
+                CONTINUE 🌷 ➤
+            </button>
+
         </div>
     </section>
 
-    <section class="screen" id="three">
-        <div class="box">
-            <div class="small">THE REAL PART 🌹</div>
+    <section class="screen" id="screen3">
+        <div class="content">
 
-            <h1>then i found you 💛</h1>
+            <h1>OUR SMALL STORY</h1>
 
-            <div class="card">
-                <p id="message"></p>
+            <p class="subtitle">
+                SOMETHINGS I WILL NEVER FORGET FROM U RASHIII💖
+            </p>
+
+            <div class="cards">
+
+                <div class="card">
+                    <div class="emoji">👶</div>
+
+                    <h2>YOU RAISED ME RASHII 💖</h2>
+
+                    <p>
+                        YOU WERE ALWAYS THERE FOR ME WHEN I NEEDED SOMEONE,
+                        EVEN BEFORE I KNEW HOW TO ASK FOR HELP.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="emoji">🫶</div>
+
+                    <h2>YOU STOOD BY ME</h2>
+
+                    <p>
+                        THROUGH MY MISTAKES, PROBLEMS AND DIFFICULT DAYS,
+                        YOU NEVER STOPPED CARING.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="emoji">🏡</div>
+
+                    <h2>YOU'RE MY HOME</h2>
+
+                    <p>
+                        Wherever life takes me, I will always know where home is.
+                    </p>
+                </div>
+
             </div>
 
-            <button onclick="typeMessage()">READ MY MESSAGE</button>
+            <button onclick="nextscreen(4)">
+                ONE MORE THING 💌
+            </button>
 
-            <button onclick="next(4)">CONTINUE ➡️</button>
         </div>
     </section>
 
-    <section class="screen" id="four">
-        <div class="box">
-            <div class="small">ONE SMALL QUESTION FOR U SANUUUU</div>
+    <section class="screen" id="screen4">
+        <div class="content">
 
-            <h1>if i could go back....</h1>
+            <div class="big-heart">🩷</div>
 
-            <p>
-                would i choose you again
+            <h1>THANK YOU, RASHIII💖</h1>
+
+            <p class="final-message">
+                for every sacrifice.<br>
+                for every lesson.<br>
+                for every prayer.<br>
+                for every hug.<br>
+                please take care of yourself<br>
+                and every time you put me before yourself.
+                <br><br>
+                <strong>I LOVE U, MOM 🩷</strong>
             </p>
 
-            <button onclick="next(5)">YES❤️</button>
+            <button onclick="showsecret()">
+                THERE IS SOMETHING ELSE 💌
+            </button>
 
-            <button onclick="next(5)">without a doubt 👉👈</button>
-        </div>
-    </section>
+            <div class="secret" id="secret">
+                IF I COULD CHOOSE MY MOTHER IN EVERY LIFETIME...
+                <br><br>
 
-    <section class="screen" id="five">
-        <div class="box">
-
-            <div class="heart">💖</div>
-
-            <h1>i would still choose you sana darling</h1>
-
-            <p>
-                “You can keep teasing me all you want, but just remember—somewhere
-                between your smile and your words, you’ve already become someone
-                I can’t ignore. ❤️”
-            </p>
-
-            <p>
-                -from someone who is really lucky to have you 💖
-            </p>
+                <strong>
+                    I WOULD CHOOSE YOU RASHHII 🩷
+                    <br>
+                    AGAIN.
+                    <br>
+                    AND AGAIN.
+                    <br>
+                    AND AGAIN.🩷
+                </strong>
+            </div>
 
         </div>
     </section>
 
     <script>
 
-        function next(number) {
-            document.querySelector(".active").classList.remove("active");
+        function nextscreen(number){
 
-            document.getElementById(
-                ["", "one", "two", "three", "four", "five"][number]
-            ).classList.add("active");
+            document.querySelectorAll(".screen").forEach(screen=>{
+                screen.classList.remove("active");
+            });
 
-            if (number == 5) {
-                makeHearts();
-            }
+            document.getElementById("screen" + number).classList.add("active");
         }
 
-        function typeMessage() {
+        function showsecret(){
 
-            let text = "i may not always know the perfect words,but one thing i know for sure...having you in my life is something i never want to take for granted.💖";
+            document.getElementById("secret").style.display="block";
 
-            let i = 0;
-
-            let message = document.getElementById("message");
-
-            message.innerHTML = "";
-
-            let timer = setInterval(function () {
-
-                message.innerHTML += text[i];
-
-                i++;
-
-                if (i == text.length) {
-                    clearInterval(timer);
-                }
-
-            }, 35);
+            createhearts();
         }
 
-        function makeHearts() {
+        function createhearts(){
 
-            for (let i = 0; i < 25; i++) {
+            for(let i=0;i<30;i++){
 
-                let heart = document.createElement("div");
+                let heart=document.createElement("div");
 
-                heart.innerHTML = "💖";
+                heart.innerHTML="❤️";
 
-                heart.className = "fallen-heart";
-
-                heart.style.left = Math.random() * 100 + "vw";
-
-                heart.style.fontSize =
-                    (15 + Math.random() * 25) + "px";
+                heart.style.position="fixed";
+                heart.style.left=Math.random()*100 + "%";
+                heart.style.bottom="-30px";
+                heart.style.fontSize=(15 + Math.random()*30) + "px";
+                heart.style.animation="floatup " + (3 + Math.random()*4) + "s linear";
 
                 document.body.appendChild(heart);
 
-                setTimeout(function () {
+                setTimeout(()=>{
                     heart.remove();
-                }, 5000);
+                },7000);
             }
         }
 
     </script>
 
 </body>
-
 </html>
